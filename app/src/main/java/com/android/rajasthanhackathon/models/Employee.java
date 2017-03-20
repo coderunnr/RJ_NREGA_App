@@ -1,14 +1,43 @@
 package com.android.rajasthanhackathon.models;
 
+import java.io.Serializable;
+
 /**
  * Created by root on 20/3/17.
  */
-public class Employee {
+public class Employee implements Serializable{
 
     String Aadharno;
     String name;
     String bhamashah_ack_id;
     String naregano;
+    String description;
+    String photo;
+    int uploaded_by;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public int getUploaded_by() {
+        return uploaded_by;
+    }
+
+    public void setUploaded_by(int uploaded_by) {
+        this.uploaded_by = uploaded_by;
+    }
 
     public String getAadharno() {
         return Aadharno;

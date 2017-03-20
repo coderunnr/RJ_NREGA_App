@@ -15,6 +15,11 @@ public class Utility {
         SharedPreferences sharedPreferences=context.getSharedPreferences("nrega",0);
         sharedPreferences.edit().putInt("district",id).apply();
     }
+    public static void setDistrictMainId(int id, Context context)
+    {
+        SharedPreferences sharedPreferences=context.getSharedPreferences("nrega",0);
+        sharedPreferences.edit().putInt("districtmain",id).apply();
+    }
 
     public static void setGramId(int id, Context context)
     {
@@ -26,7 +31,10 @@ public class Utility {
     {
         return context.getSharedPreferences("nrega",0).getInt("district",0);
     }
-
+    public static int getDistrictMainId(Context context)
+    {
+        return context.getSharedPreferences("nrega",0).getInt("districtmain",0);
+    }
     public static int getGramId(Context context)
     {
         return context.getSharedPreferences("nrega",0).getInt("gram",0);

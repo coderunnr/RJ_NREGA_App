@@ -31,7 +31,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.rajasthanhackathon.connectionutils.Connection;
+import com.android.rajasthanhackathon.connectionutils.Utility;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -48,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
+    boolean isGram=true;
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -197,7 +201,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+//        return email.contains("@");
+        return true;
     }
 
     private boolean isPasswordValid(String password) {
@@ -323,17 +328,41 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Connection connection=new Connection(url,new JSONObject(),LoginActivity.this);
             String s=connection.connectiontask();
 
+            try {
+                JSONArray jsonArray=new JSONArray(s);
+                if(jsonArray.length()==0)
+                    return false;
+                JSONObject user=jsonArray.getJSONObject(0);
+                int userid=user.getInt("id");
+                String role=user.getString("role");
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
+                if(role.contentEquals("Gram Panchayat Officer"))
+                {
+                    Utility.setGramId(userid,LoginActivity.this);
+                    isGram=true;
                 }
+                else
+                {
+                    Utility.setDistrictId(userid,LoginActivity.this);
+                    isGram=false;
+                }
+                return true;
+
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
 
+
+//            for (String credential : DUMMY_CREDENTIALS) {
+//                String[] pieces = credential.split(":");
+//                if (pieces[0].equals(mEmail)) {
+//                    // Account exists, return true if the password matches.
+//                    return pieces[1].equals(mPassword);
+//                }
+//            }
+
             // TODO: register the new account here.
-            return true;
+            return false;
         }
 
         @Override
@@ -342,9 +371,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                Intent intent=new Intent(LoginActivity.this,GramActivity.class);
-                startActivity(intent);
-                finish();
+                if(isGram) {
+                    Intent intent = new Intent(LoginActivity.this, GramActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else
+                {
+                    Intent intent = new Intent(LoginActivity.this, DistrictMainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
