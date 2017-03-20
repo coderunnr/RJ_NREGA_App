@@ -13,7 +13,26 @@ public class Employee implements Serializable{
     String naregano;
     String description;
     String photo;
+    int id;
     int uploaded_by;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    String timestamp;
 
     public String getDescription() {
         return description;

@@ -29,7 +29,8 @@
         </activity>
         <activity android:name=".GramActivity" />
         <activity android:name=".DistrictActivity" />
-        <activity android:name=".DistrictMainActivity"></activity>
+        <activity android:name=".DistrictMainActivity" />
+        <activity android:name=".ApplyNrega"></activity>
     </application>
 
 </manifest>

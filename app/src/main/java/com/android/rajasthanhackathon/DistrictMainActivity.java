@@ -76,6 +76,8 @@ public class DistrictMainActivity extends AppCompatActivity {
                     employee.setDescription(single_element.getString("description"));
                     employee.setPhoto(single_element.getString("photo"));
                     employee.setUploaded_by(single_element.getInt("uploaded_by"));
+                    employee.setTimestamp(single_element.getString("timestamp"));
+                    employee.setId(single_element.getInt("id"));
                     employees.add(employee);
 
 
@@ -143,7 +145,7 @@ public class DistrictMainActivity extends AppCompatActivity {
     }
 
     private void callGramList() {
-        new GetDistrictDetails(Utility.URL1+"grampanchayat/?district="+Utility.getDistrictMainId(DistrictMainActivity.this),new JSONObject()).execute();
+        new GetDistrictDetails(Utility.URL1+"work/?district="+Utility.getDistrictMainId(DistrictMainActivity.this),new JSONObject()).execute();
     }
 
 
