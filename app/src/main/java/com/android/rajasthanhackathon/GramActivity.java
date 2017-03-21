@@ -79,7 +79,7 @@ public class GramActivity extends AppCompatActivity {
                     jsonObject.put("emp_aadhar",aadharno);
                     jsonObject.put("description",description);
                     jsonObject.put("timestamp",timestamp);
-                    jsonObject.put("uploaded_by",1);
+                    jsonObject.put("uploaded_by",Utility.getGramId(GramActivity.this));
                     jsonObject.put("photo",photo);
                     new PostDetail(Utility.URL1+"work/",jsonObject).execute();
                 } catch (JSONException e) {

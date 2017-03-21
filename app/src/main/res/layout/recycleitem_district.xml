@@ -23,17 +23,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/district_aadhar"
+        android:textSize="22sp"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/district_description"
+        android:textSize="22sp"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/district_grampanchayat"
+        android:textSize="22sp"
         />
     </LinearLayout>
 </android.support.v7.widget.CardView>

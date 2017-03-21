@@ -382,13 +382,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 if(isGram) {
                     Intent intent = new Intent(LoginActivity.this, GramActivity.class);
                     startActivity(intent);
-                    finish();
+
                 }
                 else
                 {
                     Intent intent = new Intent(LoginActivity.this, DistrictMainActivity.class);
                     startActivity(intent);
-                    finish();
+
                 }
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

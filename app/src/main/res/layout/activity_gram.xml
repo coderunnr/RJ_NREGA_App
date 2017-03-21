@@ -7,7 +7,10 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        >
 
         <AutoCompleteTextView
             android:id="@+id/edit_aadharno"
@@ -21,7 +24,10 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        >
 
         <EditText
             android:layout_width="match_parent"
@@ -36,6 +42,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Photo"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingLeft="4dp"
+        android:textSize="20sp"
         />
     <Button
         android:layout_width="wrap_content"
@@ -46,7 +56,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:id="@+id/image_upload"
 
         />
